@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝓜𝓮𝓸 𝔂ê𝓾 𝓭ấ𝓾 ^^</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            gap: 5vw;
+            margin-bottom: 5vh;
+        }
+
+        .circle-img {
+            width: 15vw;
+            height: 15vw;
+            max-width: 120px;
+            max-height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .heart {
+            font-size: 4vw;
+            color: red;
+        }
+
+        h1 {
+            color: red;
+            font-size: 5vw;
+        }
+
+        #timer {
+            font-size: 4vw;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4vh;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(233, 229, 255);
+            padding: 4vw;
+            border-radius: 2vw;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 60vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .modal-content {
+            font-size: 3vw;
+            color: #333;
+            white-space: pre-wrap;
+        }
+
+        .signature {
+            margin-top: 2vw;
+            font-size: 3vw;
+            font-weight: bold;
+            color: red;
+            text-align: right;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 3vw;
+            color: red;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .circle-img {
+                width: 20vw;
+                height: 20vw;
+            }
+
+            .floating-heart {
+                font-size: 5vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <img src="https://i.postimg.cc/50pTGnwj/z6454597784688-c86d01843b75cb50fb6c03d1bff661d3.jpg" alt="Ảnh 1"
+            class="circle-img">
+        <div class="heart">❤️</div>
+        <img src="https://i.postimg.cc/DfjRPpvM/t-i-xu-ng.jpg" alt="Ảnh 2" class="circle-img">
+    </div>
+
+    <h1>𝓜𝓮𝓸 𝔂ê𝓾 𝓭ấ𝓾 ^^</h1>
+    <div id="timer"></div>
+    <div class="heart-button" onclick="openModal()">💌</div>
+
+    <div id="letterModal" class="modal">
+        <div class="modal-content" id="letterText"></div>
+        <div class="signature" id="signature">I miss You 𝓗ồ𝓷𝓰 𝓝𝓰ọ𝓬 🎀</div>
+    </div>
+
+    <script>
+        function countLoveTime() {
+            const startDate = new Date("2025-03-28T00:00:00+07:00");
+            const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+            let diff = now - startDate;
+
+            let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            diff -= years * (1000 * 60 * 60 * 24 * 365);
+
+            let months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+            diff -= months * (1000 * 60 * 60 * 24 * 30);
+
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            diff -= days * (1000 * 60 * 60 * 24);
+
+            let hours = Math.floor(diff / (1000 * 60 * 60));
+            diff -= hours * (1000 * 60 * 60);
+
+            let minutes = Math.floor(diff / (1000 * 60));
+            diff -= minutes * (1000 * 60);
+
+            let seconds = Math.floor(diff / 1000);
+
+            document.getElementById("timer").innerHTML =
+                `${years} năm, ${months} tháng, ${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây`;
+        }
+        setInterval(countLoveTime, 1000);
+        countLoveTime()
+        function openModal() {
+            document.getElementById("letterModal").style.display = "block";
+            let text = `𝓖ử𝓲 𝓮𝓶...❣️\n\nHôm nay là ngày 28-03-2025, ngày em rời xa quê hương mình để đến một vùng đất mới để thực hiện giấc mơ của cả đời mình. Anh cũng buồn khi không thể đồng hành cùng em trong chuyến hành trình khó khăn này. Mong dù sau này có chuyện gì xảy ra mong em luôn tin rằng luôn có một người luôn âm thầm dõi theo bước chân của em trên chuyến hành trình này 🤍\n\nAnh viết bức thư này để em không cảm thấy tủi thân trên chuyến hành trình này. Chúc mew vững bước trên con đường mình đã chọn và trở về trên con đường thành công. Sau này trở về anh hi vọng mình sẽ là người nắm tay em đi nốt chặn đường còn lại. Khi nào em cảm thấy buồn chán có thể vào đây xem thời gian trôi qua mình đã làm được những điều tuyệt vời.\n\nAnh chỉ là một người trên mạng nhưng mong sau này em có thể dành một vị trí nhỏ trong trái tim nhỏ bé của mình cho anh.\n\nAnh cảm ơn bé đã đọc ạ...`;
+            let letterText = document.getElementById("letterText");
+            letterText.innerHTML = "";
+            let index = 0;
+            function typeLetter() {
+                if (index < text.length) {
+                    letterText.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeLetter, 50);
+                } else {
+                    document.getElementById("signature").style.opacity = "1";
+                }
+            }
+            typeLetter();
+        }
+        setInterval(countLoveTime, 1000);
+        countLoveTime();
+        function createHearts() {
+            setInterval(() => {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("floating-heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 5 + 6) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 8000);
+            }, 500);
+        }
+
+        createHearts();
+    </script>
+</body>
+
+</html>
